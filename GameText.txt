@@ -1,0 +1,4 @@
+wonGameMessage
+Du har vundet
+jailMessage
+You are now in jail.
