@@ -1,10 +1,14 @@
+
+import gui_main.GUI;
+
 import java.io.*;
 
 public class GameController {
-    final static String file = "GameText.txt";
+    final static String file = "src/main/resources/GameText.txt";
 
     public static void main(String[] args) {
         System.out.println(readTextFromFile(file,"jailMessage"));
+
 
     }
 
