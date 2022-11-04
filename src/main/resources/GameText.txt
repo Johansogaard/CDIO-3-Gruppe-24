@@ -1,4 +1,6 @@
-wonGameMessage
-Du har vundet
-jailMessage
-You are now in jail.
+start;Start
+startD;2 M for passing here
+startS;You start here
+gatekjøkkenetBurgerbarenT;Gatekjøkkenet Burgerbaren
+gatekjøkkenetBurgerbarenS;1M
+gatekjøkkenetBurgerbarenD;Denne grund koster 1M

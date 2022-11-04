@@ -1,18 +1,29 @@
 
+import gui_fields.GUI_Field;
 import gui_main.GUI;
-
+import gui_Game_Fields.*;
+import java.awt.*;
 import java.io.*;
 
 public class GameController {
     final static String file = "src/main/resources/GameText.txt";
 
     public static void main(String[] args) {
-        System.out.println(readTextFromFile(file,"jailMessage"));
-
+       // System.out.println(readTextFromFile(file,"jailMessage"));
+        GUI gui = new GUI(istantiererFelter(),Color.cyan);
 
     }
 
-    public static String readTextFromFile(String file, String stringName)
+
+
+public static GUI_Field[] istantiererFelter()
+{
+gui_Start gStart = new gui_Start();
+gui_GatekjøkkenetBurgerbaren gkBurgerbaren = new gui_GatekjøkkenetBurgerbaren();
+GUI_Field[] fields ={gStart,gkBurgerbaren};
+return fields;
+}
+   /* public static String readTextFromFile(String file, String stringName)
     {
         String message;
         try {
@@ -40,5 +51,5 @@ public class GameController {
         return message;
 
 
-    }
+    }*/
 }
