@@ -1,9 +1,9 @@
-/*package spil;
+package spil;
 
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
-import our_fields.GUI_Custom;
+import gui_Game_Fields.GUI_Parentfield;
 
 public class Player {
     private int pos=0;
@@ -37,7 +37,7 @@ public class Player {
         return konto;
     }
     //spiller en runde for den spiller der er kaldt
-    public void spil(GUI gui, GUI_Custom[] fields)
+    public void spil(GUI gui, GUI_Parentfield[] fields)
     {
         while (true) {
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
@@ -62,11 +62,11 @@ public class Player {
 
         }
     }
-    public void turn(GUI_Custom[] fields)
+    public void turn(GUI_Parentfield[] fields)
     {
         t1 = terninger.slaEnTerning();
         t2 = terninger.slaEnTerning();
-        konto = fields[t1+t2].hit(konto);
+        //konto = fields[t1+t2].hit(konto);
     }
     public void setCar(int tsum,GUI gui)
     {
@@ -81,4 +81,4 @@ public class Player {
         gui.displayChanceCard(f.getTitle()+"\n"+ f.getDescription());
     }
 }
-*/
+

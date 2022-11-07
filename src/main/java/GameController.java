@@ -1,20 +1,27 @@
 
+import com.sun.source.tree.CatchTree;
 import game_Txt.FieldText;
 import gui_Game_Fields.GUI_Start;
 import gui_fields.*;
 import gui_main.GUI;
 import gui_Game_Fields.*;
+import spil.GameFeatures;
+import spil.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class GameController {
     final static String file = "src/main/resources/GameText.txt";
     public static FieldText mt = FieldText.getInstance();
     public static void main(String[] args) {
-       // System.out.println(readTextFromFile(file,"jailMessage"));
-        GUI gui = new GUI(istantiererFelter(),Color.cyan);
+        Player[] players = GameFeatures.playerstoadd();
 
-    }
-
+           // System.out.println(readTextFromFile(file,"jailMessage"));
+           GUI gui = new GUI(istantiererFelter(), Color.cyan);
+           for (int i = 0; i < players.length; i++) {
+               players[i].tilføjspillerGui(gui);
+           }
+       }
 
 
 public static GUI_Field[] istantiererFelter()
