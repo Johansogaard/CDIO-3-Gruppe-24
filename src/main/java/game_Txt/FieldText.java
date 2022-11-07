@@ -22,7 +22,7 @@ public class FieldText {
             BufferedReader reader = new BufferedReader(new FileReader(file));
             while(true) {
                 input = reader.readLine();
-                if (input == null) {
+                if (input == null || input == "") {
                     reader.close();
                     return map;
 

@@ -34,9 +34,20 @@ GUI_SkaterParken skaterParken = new GUI_SkaterParken();
 GUI_SwimmingPoolen swimmingPoolen = new GUI_SwimmingPoolen();
 GUI_Parkering parkering = new GUI_Parkering();
 GUI_Spillehallen spillehallen = new GUI_Spillehallen();
+GUI_Biografen biografen=  new GUI_Biografen();
+GUI_Chance chanceField3 = new GUI_Chance();
+GUI_Legetøjsbutikken legetøjsbutikken = new GUI_Legetøjsbutikken();
+GUI_Dyrebutikken dyrebutikken = new GUI_Dyrebutikken();
+GUI_GoToJail goToJail = new GUI_GoToJail();
+GUI_Bowlinghallen bowlinghallen = new GUI_Bowlinghallen();
+GUI_Zoologiskhave zoologiskhave = new GUI_Zoologiskhave();
+GUI_Chance chanceField4 = new GUI_Chance();
+GUI_Vandlandet vandlandet = new GUI_Vandlandet();
+GUI_Strandpromenaden strandpromenaden = new GUI_Strandpromenaden();
 
 GUI_Field[] fields ={gStart,gkBurgerbaren,phPizzariaet,chanceField1,gButikken,
-        isKiosken,jail,museet,biblioteket,chanceField2, skaterParken,swimmingPoolen, parkering, spillehallen};
+        isKiosken,jail,museet,biblioteket,chanceField2, skaterParken,swimmingPoolen, parkering, spillehallen,
+        biografen,chanceField3, legetøjsbutikken,dyrebutikken, goToJail,bowlinghallen,zoologiskhave,chanceField4,vandlandet, strandpromenaden};
 
 
 return fields;

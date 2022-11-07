@@ -32,3 +32,27 @@ parkeringD;Du holder parkeret og der sker ikke noget
 spillehallenT;Spillehallen
 spillehallenS;3M
 spillehallenD;Denne grund koster 3M
+biografenT;Biografen
+biografenS;3M
+biografenD;Denne grund koster 3M
+legetøjsbutikkenT;LegetøjsButikken
+legetøjsbutikkenS;3M
+legetøjsbutikkenD;Denne grund koster 3M
+dyrebutikkenT;Dyrebutikken
+dyrebutikkenS;3M
+dyrebutikkenD;Denne grund koster 3M
+goToJailT;Gå i fængsel
+goToJailS;Gå i fængsel
+goToJailD;Du skal i fængsel
+bowlinghallenT;Bowlinghallen
+bowlinghallenS;4M
+bowlinghallenD;Denne grund koster 4M
+zoologiskhaveT;Zoologiskhave
+zoologiskhaveS;4M
+zoologiskhaveD;Denne grund koster 4M
+vandlandetT;Vandlandet
+vandlandetS;5M
+vandlandetD;Denne grund koster 5M
+strandpromenadenT;Strandpromenaden
+strandpromenadenS;5M
+strandpromenadenD;Denne grund koster 5M
