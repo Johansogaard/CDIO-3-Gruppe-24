@@ -23,12 +23,16 @@ public class FieldText {
             while(true) {
                 input = reader.readLine();
                 if (input == null) {
+                    reader.close();
                     return map;
+
                 } else {
                     StringTokenizer st = new StringTokenizer(input, ";");
                     map.put(st.nextToken(), st.nextToken());
                 }
+
             }
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

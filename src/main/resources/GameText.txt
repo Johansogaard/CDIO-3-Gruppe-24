@@ -4,3 +4,31 @@ startS;You start here
 gatekjøkkenetBurgerbarenT;Gatekjøkkenet Burgerbaren
 gatekjøkkenetBurgerbarenS;1M
 gatekjøkkenetBurgerbarenD;Denne grund koster 1M
+pizzahusetPizzariaetT;Pizzahuset Pizzariaet
+pizzahusetPizzariaetS;1M
+pizzahusetPizzariaetD;Denne grund koster 1M
+iskioskenT;Iskiosken
+iskioskenS;1M
+iskioskenD;Denne grund koster 1M
+godteButikkenT;GodteButikken SlikButikken
+godteButikkenS;1M
+godteButikkenD;Denne grund koster 1M
+jailS;Fængsel
+museetT;Museet
+museetS;2M
+museetD;Denne grunder koster 2M
+biblioteketT;Biblioteket
+biblioteketS;2M
+biblioteketD;Denne grund koster 2M
+skaterParkenT;SkaterParken
+skaterParkenS;2M
+skaterParkenD;Denne grund koster 2M
+swimmingPoolenT;SvømmeBassenget SwimmingPoolen
+swimmingPoolenS;2M
+swimmingPoolenD;Denne grund koster 2M
+parkeringT;Parkering
+parkeringS;Gratis
+parkeringD;Du holder parkeret og der sker ikke noget
+spillehallenT;Spillehallen
+spillehallenS;3M
+spillehallenD;Denne grund koster 3M

@@ -1,6 +1,5 @@
 package gui_Game_Fields;
 import game_Txt.FieldText;
-import spil.*;
 import gui_codebehind.GUI_Center;
 import gui_codebehind.SwingComponentFactory;
 import gui_fields.GUI_Field;
@@ -9,13 +8,13 @@ import gui_fields.GUI_Player;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class gui_Parentfield extends GUI_Field {
+public abstract class GUI_Parentfield extends GUI_Field {
     public static FieldText mt = FieldText.getInstance();
     private static final int TITLEHEIGHT = 47;
     private static final int SUBTEXTHEIGHT = 14;
     private SwingComponentFactory factory;
 
-    public gui_Parentfield(Color bgColor, Color fgColor, String title, String subText, String description) {
+    public GUI_Parentfield(Color bgColor, Color fgColor, String title, String subText, String description) {
         super(bgColor, fgColor, title, subText, description);
         this.factory = new SwingComponentFactory();
         this.titleLabel = this.makeTitleLabel(this.title);
