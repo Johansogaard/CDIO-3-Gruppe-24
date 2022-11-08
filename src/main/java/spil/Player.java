@@ -37,7 +37,7 @@ public class Player {
         return konto;
     }
     //spiller en runde for den spiller der er kaldt
-    public void spil(GUI gui, GUI_Parentfield[] fields)
+    public void spil(GUI gui, GUI_Field[] fields)
     {
         while (true) {
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
@@ -62,7 +62,7 @@ public class Player {
 
         }
     }
-    public void turn(GUI_Parentfield[] fields)
+    public void turn(GUI_Field[] fields)
     {
         t1 = terninger.slaEnTerning();
         t2 = terninger.slaEnTerning();

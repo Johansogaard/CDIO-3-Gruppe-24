@@ -17,10 +17,16 @@ public class GameController {
         Player[] players = GameFeatures.playerstoadd();
 
            // System.out.println(readTextFromFile(file,"jailMessage"));
-           GUI gui = new GUI(istantiererFelter(), Color.cyan);
+            GUI_Field[] fields = istantiererFelter();
+           GUI gui = new GUI(fields, Color.cyan);
            for (int i = 0; i < players.length; i++) {
                players[i].tilføjspillerGui(gui);
            }
+
+            for (int i=0; i< players.length;i++)
+            {
+                players[i].spil(gui,fields);
+            }
        }
 
 

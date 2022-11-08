@@ -3,9 +3,11 @@ package spil;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import spil.*;
+
 public class GameFeatures {
-   private static int players;
+   private static Integer players=-1;
+   private static final Object monitor = new Object();
+   private static boolean b =false;
     public GameFeatures()
     {
 
@@ -35,8 +37,7 @@ public class GameFeatures {
             }
     }
 
-    public static int playercountadd()
-    {
+    public static int playercountadd()  {
 
 
         JFrame f = new JFrame();
@@ -60,43 +61,76 @@ public class GameFeatures {
         ButtonGroup bg=new ButtonGroup();
         bg.add(p2);bg.add(p3);bg.add(p4);
 
-        jb.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Declaration of String class Objects.
-                String qual = " ";
-                boolean b = false;
-                while (b == false){
+            jb.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Declaration of String class Objects.
+                    String qual = " ";
+
+
                     // If condition to check if jRadioButton2 is selected.
                     if (p2.isSelected()) {
                         qual = "Gamemode: 2 players";
                         players = 2;
-                        b = true;
                     } else if (p3.isSelected()) {
 
                         qual = "Gamemode: 3 players";
                         players = 3;
-                        b = true;
+
 
                     } else if (p4.isSelected()) {
 
                         qual = "Gamemode: 4 players";
                         players = 4;
-                        b = true;
+
                     } else {
 
                         qual = "NO Button selected";
 
                     }
                     // MessageDialog to show information selected radio buttons.
-                JOptionPane.showMessageDialog(f, qual);
-            }f.setVisible(false);
+                    JOptionPane.showMessageDialog(f, qual);
 
-            }
-        });
+                    if (players == -1)
+                        return;
+                    f.setVisible(false);
+                    synchronized (monitor) {
+                        monitor.notify();
+                    }
+                }
+
+            });
+try {
+    synchronized (monitor) {
+        monitor.wait();
+    }
+} catch (InterruptedException i){};
 
 
-        return players;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    return players;
+
     }
 
 }
