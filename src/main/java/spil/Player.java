@@ -36,8 +36,12 @@ public class Player {
 
         return konto;
     }
+    public String getName()
+    {
+        return name;
+    }
     //spiller en runde for den spiller der er kaldt
-    public void spil(GUI gui, GUI_Field[] fields)
+    public void spil(GUI gui, GUI_Parentfield[] fields)
     {
         while (true) {
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
@@ -62,11 +66,11 @@ public class Player {
 
         }
     }
-    public void turn(GUI_Field[] fields)
+    public void turn(GUI_Parentfield[] fields)
     {
         t1 = terninger.slaEnTerning();
         t2 = terninger.slaEnTerning();
-        //konto = fields[t1+t2].hit(konto);
+        fields[t1+t2].hit(this);
     }
     public void setCar(int tsum,GUI gui)
     {
@@ -79,6 +83,11 @@ public class Player {
     {
         GUI_Field f = gui.getFields()[pos];
         gui.displayChanceCard(f.getTitle()+"\n"+ f.getDescription());
+    }
+
+    public void buyfield(int cost)
+    {
+
     }
 }
 

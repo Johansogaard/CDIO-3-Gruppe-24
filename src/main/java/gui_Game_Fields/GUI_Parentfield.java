@@ -4,14 +4,27 @@ import gui_codebehind.GUI_Center;
 import gui_codebehind.SwingComponentFactory;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
+import spil.Konto;
+import spil.Player;
 
 import javax.swing.*;
+import javax.swing.plaf.PanelUI;
 import java.awt.*;
 
 public abstract class GUI_Parentfield extends GUI_Field {
     public static FieldText mt = FieldText.getInstance();
     private static final int TITLEHEIGHT = 47;
     private static final int SUBTEXTHEIGHT = 14;
+
+    public Player getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
+
+    private Player owner=null;
     private SwingComponentFactory factory;
 
     public GUI_Parentfield(Color bgColor, Color fgColor, String title, String subText, String description) {
@@ -22,8 +35,25 @@ public abstract class GUI_Parentfield extends GUI_Field {
         this.layered.add(this.titleLabel, this.factory.createGridBagConstraints(0, 0));
         this.layered.add(this.subTextLabel, this.factory.createGridBagConstraints(0, 1));
     }
-    public abstract void hit();
 
+    public abstract int cost();
+
+    public void hit(Player player) {
+
+        int cost =cost();
+
+        if (getOwner() ==null)
+        {
+            setOwner(player);
+            player.getKonto().update(-cost);
+        }
+        else if(player != getOwner())
+        {
+            player.getKonto().update(-cost);
+        }
+
+
+    }
     private JLabel makeTitleLabel(String titleStart) {
         JLabel l = this.makeLabel(47);
         l.setText(titleStart);

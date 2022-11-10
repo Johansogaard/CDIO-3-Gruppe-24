@@ -9,7 +9,7 @@ public class GUI_Dyrebutikken extends GUI_Parentfield{
     }
 
     @Override
-    public void hit() {
-
+    public int cost() {
+        return 3;
     }
 }

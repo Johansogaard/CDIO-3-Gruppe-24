@@ -8,7 +8,7 @@ public class GUI_Museet extends GUI_Parentfield{
     }
 
     @Override
-    public void hit() {
-
+    public int cost() {
+        return 2;
     }
 }

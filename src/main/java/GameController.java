@@ -1,6 +1,8 @@
 
 import com.sun.source.tree.CatchTree;
 import game_Txt.FieldText;
+import gui_Game_Fields.GUI_Chance;
+import gui_Game_Fields.GUI_Jail;
 import gui_Game_Fields.GUI_Start;
 import gui_fields.*;
 import gui_main.GUI;
@@ -17,14 +19,14 @@ public class GameController {
         Player[] players = GameFeatures.playerstoadd();
 
            // System.out.println(readTextFromFile(file,"jailMessage"));
-            GUI_Field[] fields = istantiererFelter();
+            GUI_Parentfield[] fields = istantiererFelter();
            GUI gui = new GUI(fields, Color.cyan);
            for (int i = 0; i < players.length; i++) {
                players[i].tilføjspillerGui(gui);
            }
            playGame(players,fields,gui);
        }
-public static void playGame (Player[] players,GUI_Field[] fields,GUI gui)
+public static void playGame (Player[] players,GUI_Parentfield[] fields,GUI gui)
 {
     while(true) {
         for (int i = 0; i < players.length; i++) {
@@ -33,7 +35,7 @@ public static void playGame (Player[] players,GUI_Field[] fields,GUI gui)
     }
 }
 
-public static GUI_Field[] istantiererFelter()
+public static GUI_Parentfield[] istantiererFelter()
 {
 GUI_Start gStart = new GUI_Start();
 GUI_GatekjøkkenetBurgerbaren gkBurgerbaren = new GUI_GatekjøkkenetBurgerbaren();
@@ -61,7 +63,7 @@ GUI_Chance chanceField4 = new GUI_Chance();
 GUI_Vandlandet vandlandet = new GUI_Vandlandet();
 GUI_Strandpromenaden strandpromenaden = new GUI_Strandpromenaden();
 
-GUI_Field[] fields ={gStart,gkBurgerbaren,phPizzariaet,chanceField1,gButikken,
+GUI_Parentfield[] fields ={gStart,gkBurgerbaren,phPizzariaet,chanceField1,gButikken,
         isKiosken,jail,museet,biblioteket,chanceField2, skaterParken,swimmingPoolen, parkering, spillehallen,
         biografen,chanceField3, legetøjsbutikken,dyrebutikken, goToJail,bowlinghallen,zoologiskhave,chanceField4,vandlandet, strandpromenaden};
 

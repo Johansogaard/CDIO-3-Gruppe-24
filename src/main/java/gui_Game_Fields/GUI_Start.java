@@ -1,5 +1,7 @@
 package gui_Game_Fields;
 
+import spil.Player;
+
 import java.awt.*;
 
 public class GUI_Start extends GUI_Parentfield {
@@ -9,7 +11,12 @@ public class GUI_Start extends GUI_Parentfield {
     }
 
     @Override
-    public void hit() {
+    public int cost() {
+        return 0;
+    }
+    @Override
+    public void hit(Player player)
+    {
 
     }
 }

@@ -8,8 +8,9 @@ public class GUI_Biografen extends GUI_Parentfield{
         super(Color.pink, Color.black,mt.mp.get("biografenT"), mt.mp.get("biografenS"), mt.mp.get("biografenD"));
     }
 
-    @Override
-    public void hit() {
 
+    @Override
+    public int cost() {
+        return 3;
     }
 }

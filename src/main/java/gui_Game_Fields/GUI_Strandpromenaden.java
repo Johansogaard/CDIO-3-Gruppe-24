@@ -9,7 +9,7 @@ public class GUI_Strandpromenaden extends GUI_Parentfield{
     }
 
     @Override
-    public void hit() {
-
+    public int cost() {
+        return 5;
     }
 }

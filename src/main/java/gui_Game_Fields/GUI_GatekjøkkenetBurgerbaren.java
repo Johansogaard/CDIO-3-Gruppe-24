@@ -8,7 +8,7 @@ public class GUI_GatekjøkkenetBurgerbaren extends GUI_Parentfield {
     }
 
     @Override
-    public void hit() {
-
+    public int cost() {
+        return 1;
     }
 }
