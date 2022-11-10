@@ -22,13 +22,16 @@ public class GameController {
            for (int i = 0; i < players.length; i++) {
                players[i].tilføjspillerGui(gui);
            }
-
-            for (int i=0; i< players.length;i++)
-            {
-                players[i].spil(gui,fields);
-            }
+           playGame(players,fields,gui);
        }
-
+public static void playGame (Player[] players,GUI_Field[] fields,GUI gui)
+{
+    while(true) {
+        for (int i = 0; i < players.length; i++) {
+            players[i].spil(gui,fields);
+        }
+    }
+}
 
 public static GUI_Field[] istantiererFelter()
 {

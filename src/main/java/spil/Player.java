@@ -42,10 +42,10 @@ public class Player {
         while (true) {
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
                 turn(fields);
-
+                pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
-                setCar(t1+t2, gui);
-                displayCard(t1+t2,gui);
+                setCar(pos, gui);
+                displayCard(pos,gui);
                 pl.setBalance(konto.getBalance());
 
                 if (konto.getBalance() >= 3000) {
@@ -75,9 +75,9 @@ public class Player {
         felt.setCar(pl,true);
         fpos = gui.getFields()[tsum];
     }
-    public void displayCard(int tsum, GUI gui)
+    public void displayCard(int pos, GUI gui)
     {
-        GUI_Field f = gui.getFields()[tsum];
+        GUI_Field f = gui.getFields()[pos];
         gui.displayChanceCard(f.getTitle()+"\n"+ f.getDescription());
     }
 }
