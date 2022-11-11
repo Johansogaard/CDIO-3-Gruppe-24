@@ -46,11 +46,10 @@ public class Player {
         while (true) {
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
                 turn(fields);
-                pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
                 setCar(pos, gui);
                 displayCard(pos,gui);
-                pl.setBalance(konto.getBalance());
+             //   pl.setBalance(konto.getBalance());
 
                 if (konto.getBalance() >= 3000) {
                     if (gui.getUserButtonPressed(name + " Vandt spillet tryk ok for at afslutte", "ok") == "ok") {
@@ -70,7 +69,8 @@ public class Player {
     {
         t1 = terninger.slaEnTerning();
         t2 = terninger.slaEnTerning();
-        fields[t1+t2].hit(this);
+        pos=(pos+t1 +t2)%24;
+        fields[pos].hit(this);
     }
     public void setCar(int tsum,GUI gui)
     {
@@ -85,9 +85,14 @@ public class Player {
         gui.displayChanceCard(f.getTitle()+"\n"+ f.getDescription());
     }
 
-    public void buyfield(int cost)
+    public void payOrGetRent(int cost)
     {
+        pl.setBalance(cost);
+    }
 
+    public void buyField(int cost)
+    {
+        pl.setBalance(cost);
     }
 }
 
