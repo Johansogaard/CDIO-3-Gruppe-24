@@ -6,12 +6,31 @@ import gui_main.GUI;
 import gui_Game_Fields.GUI_Parentfield;
 
 public class Player {
+    public int getPos() {
+        return pos;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
+
     private int pos=0;
     Konto konto = new Konto(0);
     Terninger terninger = new Terninger();
     GUI_Player pl;
     GUI_Field fpos;
     GUI gui;
+
+
+
+    private boolean jail= false;
+    public boolean isJail() {
+        return jail;
+    }
+
+    public void setJail(boolean jail) {
+        this.jail = jail;
+    }
     private int t1=0;
     private int t2=0;
     private String name;
@@ -45,13 +64,23 @@ public class Player {
     //spiller en runde for den spiller der er kaldt
     public void spil(GUI gui, GUI_Parentfield[] fields)
     {
+
         while (true) {
+            if (isJail())
+            {
+                setJail(false);
+                gui.getUserButtonPressed(name + " du er i fængsel og betaler 1M for at komme ud i næste runde", "Okay");
+                konto.update(-1);
+                pl.setBalance(konto.getBalance());
+                break;
+            }
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
+                turn();
                 pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
                 setCar(pos, gui);
                 displayCard(pos,gui);
-                turn(fields);
+                fields[pos].hit(this);
              //   pl.setBalance(konto.getBalance());
 
                 if (konto.getBalance() >= 3000) {
@@ -68,11 +97,11 @@ public class Player {
 
         }
     }
-    public void turn(GUI_Parentfield[] fields)
+    public void turn()
     {
         t1 = terninger.slaEnTerning();
         t2 = terninger.slaEnTerning();
-        fields[pos].hit(this);
+
     }
     public void setCar(int tsum,GUI gui)
     {
@@ -105,6 +134,13 @@ public class Player {
         gui.getUserButtonPressed(pl.getName() + " bought " + title+"", "Okay");
         pl.setBalance(cost);
 
+    }
+    public void injail()
+    {
+        pos =18;
+        setCar(18,gui);
+        setJail(true);
+        gui.getUserButtonPressed(name + " du er i fængsel og bliver sprunget over i næste runde", "Okay");
     }
 }
 

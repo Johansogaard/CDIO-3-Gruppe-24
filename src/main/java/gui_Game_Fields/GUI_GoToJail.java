@@ -21,6 +21,7 @@ public class GUI_GoToJail extends GUI_Parentfield {
     @Override
     public void hit(Player player)
     {
+        player.injail();
 
     }
 }

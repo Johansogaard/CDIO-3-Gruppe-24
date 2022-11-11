@@ -64,8 +64,8 @@ GUI_Vandlandet vandlandet = new GUI_Vandlandet();
 GUI_Strandpromenaden strandpromenaden = new GUI_Strandpromenaden();
 
 GUI_Parentfield[] fields ={gStart,gkBurgerbaren,phPizzariaet,chanceField1,gButikken,
-        isKiosken,jail,museet,biblioteket,chanceField2, skaterParken,swimmingPoolen, parkering, spillehallen,
-        biografen,chanceField3, legetøjsbutikken,dyrebutikken, goToJail,bowlinghallen,zoologiskhave,chanceField4,vandlandet, strandpromenaden};
+        isKiosken,goToJail,museet,biblioteket,chanceField2, skaterParken,swimmingPoolen, parkering, spillehallen,
+        biografen,chanceField3, legetøjsbutikken,dyrebutikken, jail,bowlinghallen,zoologiskhave,chanceField4,vandlandet, strandpromenaden};
 
 
 return fields;
