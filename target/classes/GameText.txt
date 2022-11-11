@@ -1,0 +1,58 @@
+start;Start
+startD;2 M for passing here
+startS;You start here
+gatekjøkkenetBurgerbarenT;Gatekjøkkenet Burgerbaren
+gatekjøkkenetBurgerbarenS;1M
+gatekjøkkenetBurgerbarenD;Denne grund koster 1M
+pizzahusetPizzariaetT;Pizzahuset Pizzariaet
+pizzahusetPizzariaetS;1M
+pizzahusetPizzariaetD;Denne grund koster 1M
+iskioskenT;Iskiosken
+iskioskenS;1M
+iskioskenD;Denne grund koster 1M
+godteButikkenT;GodteButikken SlikButikken
+godteButikkenS;1M
+godteButikkenD;Denne grund koster 1M
+jailS;Fængsel
+museetT;Museet
+museetS;2M
+museetD;Denne grunder koster 2M
+biblioteketT;Biblioteket
+biblioteketS;2M
+biblioteketD;Denne grund koster 2M
+skaterParkenT;SkaterParken
+skaterParkenS;2M
+skaterParkenD;Denne grund koster 2M
+swimmingPoolenT;SvømmeBassenget SwimmingPoolen
+swimmingPoolenS;2M
+swimmingPoolenD;Denne grund koster 2M
+parkeringT;Parkering
+parkeringS;Gratis
+parkeringD;Du holder parkeret og der sker ikke noget
+spillehallenT;Spillehallen
+spillehallenS;3M
+spillehallenD;Denne grund koster 3M
+biografenT;Biografen
+biografenS;3M
+biografenD;Denne grund koster 3M
+legetøjsbutikkenT;LegetøjsButikken
+legetøjsbutikkenS;3M
+legetøjsbutikkenD;Denne grund koster 3M
+dyrebutikkenT;Dyrebutikken
+dyrebutikkenS;3M
+dyrebutikkenD;Denne grund koster 3M
+goToJailT;Gå i fængsel
+goToJailS;Gå i fængsel
+goToJailD;Du skal i fængsel
+bowlinghallenT;Bowlinghallen
+bowlinghallenS;4M
+bowlinghallenD;Denne grund koster 4M
+zoologiskhaveT;Zoologiskhave
+zoologiskhaveS;4M
+zoologiskhaveD;Denne grund koster 4M
+vandlandetT;Vandlandet
+vandlandetS;5M
+vandlandetD;Denne grund koster 5M
+strandpromenadenT;Strandpromenaden
+strandpromenadenS;5M
+strandpromenadenD;Denne grund koster 5M
