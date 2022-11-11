@@ -11,6 +11,7 @@ public class Player {
     Terninger terninger = new Terninger();
     GUI_Player pl;
     GUI_Field fpos;
+    GUI gui;
     private int t1=0;
     private int t2=0;
     private String name;
@@ -31,6 +32,7 @@ public class Player {
         field.setCar(player,true);
         fpos = field;
         pl=player;
+        this.gui = gui;
     }
     public Konto getKonto(){
 
@@ -45,10 +47,11 @@ public class Player {
     {
         while (true) {
             if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
-                turn(fields);
+                pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
                 setCar(pos, gui);
                 displayCard(pos,gui);
+                turn(fields);
              //   pl.setBalance(konto.getBalance());
 
                 if (konto.getBalance() >= 3000) {
@@ -69,7 +72,6 @@ public class Player {
     {
         t1 = terninger.slaEnTerning();
         t2 = terninger.slaEnTerning();
-        pos=(pos+t1 +t2)%24;
         fields[pos].hit(this);
     }
     public void setCar(int tsum,GUI gui)
@@ -85,14 +87,24 @@ public class Player {
         gui.displayChanceCard(f.getTitle()+"\n"+ f.getDescription());
     }
 
-    public void payOrGetRent(int cost)
+    public void payRent(int cost, Player owner, String title)
+    {
+        gui.getUserButtonPressed(pl.getName() + " landed on " + title+" and needs to pay rent to " + owner.getName(), "Okay");
+        pl.setBalance(cost);
+
+
+    }
+    public void getRent(int cost)
     {
         pl.setBalance(cost);
     }
 
-    public void buyField(int cost)
+
+    public void buyField(int cost, String title)
     {
+        gui.getUserButtonPressed(pl.getName() + " bought " + title+"", "Okay");
         pl.setBalance(cost);
+
     }
 }
 
