@@ -7,7 +7,7 @@ public class RyktilstartCard extends Parent_Card{
     public void hit(Player player) {
         player.showchancecard("Ryk til start og modtag 2 M");
         player.movePlayer(0);
-        player.updatePlayerBalance(-10);
+        player.updatePlayerBalance(2);
 
     }
 }
