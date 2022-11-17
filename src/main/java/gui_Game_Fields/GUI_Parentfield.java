@@ -50,8 +50,8 @@ public abstract class GUI_Parentfield extends GUI_Field {
         }
         else if(player != getOwner())
         {
-            getOwner().getKonto().update(cost);
-            player.getKonto().update(-cost);
+            getOwner().getKonto().update(cost* player.checkDoubleCost());
+            player.getKonto().update(-cost*player.checkDoubleCost());
             player.payRent(player.getKonto().getBalance(),owner,getTitle());
             getOwner().getRent(getOwner().getKonto().getBalance());
 

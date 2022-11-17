@@ -34,6 +34,7 @@ public class Player {
     private int t1=0;
     private int t2=0;
     private String name;
+    GUI_Parentfield gamefields[];
     public Player(String name, int bal, int postiotion)
     {
         konto.update(bal);
@@ -62,41 +63,39 @@ public class Player {
         return name;
     }
     //spiller en runde for den spiller der er kaldt
-    public void spil(GUI gui, GUI_Parentfield[] fields)
+    public boolean spil(GUI gui, GUI_Parentfield[] fields)
     {
+        gamefields = fields;
 
-        while (true) {
             if (isJail())
             {
                 setJail(false);
                 gui.getUserButtonPressed(name + " du er i fængsel og betaler 1M for at komme ud i næste runde", "Okay");
-                konto.update(-1);
-                pl.setBalance(konto.getBalance());
-                break;
+                updatePlayerBalance(-1);
+
             }
-            if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
+            else if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
                 turn();
                 pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
                 setCar(pos, gui);
                 displayCard(pos,gui);
                 fields[pos].hit(this);
-             //   pl.setBalance(konto.getBalance());
-
-                if (konto.getBalance() >= 3000) {
-                    if (gui.getUserButtonPressed(name + " Vandt spillet tryk ok for at afslutte", "ok") == "ok") {
-                        System.exit(0);
-                    }
-
-                }
-                if (t1+t2 != 10) {
-                    break;
-                }
 
             }
 
-        }
+            if (konto.getBalance() <=0) {
+                    return true;
+            }
+            else {
+                return false;
+            }
+
+
+
+
     }
+
     public void turn()
     {
         t1 = terninger.slaEnTerning();
@@ -116,13 +115,18 @@ public class Player {
         gui.displayChanceCard(f.getTitle()+"\n"+ f.getDescription());
     }
 
-    public void payRent(int cost, Player owner, String title)
-    {
-        gui.getUserButtonPressed(pl.getName() + " landed on " + title+" and needs to pay rent to " + owner.getName(), "Okay");
+    public void payRent(int cost, Player owner, String title) {
+        if (checkDoubleCost() == 1) {
+            gui.getUserButtonPressed(pl.getName() + " landed on " + title + " and needs to pay rent to " + owner.getName(), "Okay");
+        } else {
+            gui.getUserButtonPressed(pl.getName() + " landed on " + title + " and needs to pay double rent to " + owner.getName()+" because he owns 2 field with this color", "Okay");
+        }
+
         pl.setBalance(cost);
-
-
     }
+
+
+
     public void getRent(int cost)
     {
         pl.setBalance(cost);
@@ -137,10 +141,37 @@ public class Player {
     }
     public void injail()
     {
-        pos =18;
-        setCar(18,gui);
+       movePlayer(18);
         setJail(true);
         gui.getUserButtonPressed(name + " du er i fængsel og bliver sprunget over i næste runde", "Okay");
     }
+    public void movePlayer(int number)
+    {
+        pos = number;
+        setCar(pos,gui);
+
+   }
+   public void showchancecard(String txt){
+       gui.displayChanceCard(txt);
+       gui.getUserButtonPressed(name + txt, "Okay");
+
+    }
+    public void updatePlayerBalance(int value)
+    {
+        konto.update(value);
+        pl.setBalance(konto.getBalance());
+    }
+    public int checkDoubleCost()
+    {
+
+        if (gamefields[pos].getOwner() == gamefields[pos-1].getOwner() ||  gamefields[pos].getOwner() == gamefields[pos+1].getOwner())
+        {
+            return 2;
+        }
+        else return 1;
+
+    }
+
+
 }
 

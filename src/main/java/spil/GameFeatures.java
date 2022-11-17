@@ -1,5 +1,8 @@
 package spil;
 
+import card.Parent_Card;
+import card.RyktilstartCard;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +14,13 @@ public class GameFeatures {
     public GameFeatures()
     {
 
+    }
+    public static Parent_Card[] cards()
+    {
+        Parent_Card rykTilStart = new RyktilstartCard();
+
+      Parent_Card cardArray[]= {rykTilStart};
+      return cardArray;
     }
 
     public static Player[] playerstoadd(){

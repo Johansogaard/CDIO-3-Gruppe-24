@@ -5,11 +5,13 @@
 
 package gui_Game_Fields;
 
+import card.Parent_Card;
 import gui_Game_Fields.GUI_Parentfield;
 import gui_codebehind.GUI_Center;
 import gui_codebehind.SwingComponentFactory;
 import gui_fields.GUI_Player;
 import gui_resources.Attrs;
+import spil.GameFeatures;
 import spil.Player;
 
 import java.awt.Color;
@@ -62,6 +64,8 @@ public class GUI_Chance extends GUI_Parentfield {
     public void hit(Player player)
     {
 
+       Parent_Card[] cards = GameFeatures.cards();
+       cards[0].hit(player);
     }
 
     public String toString() {

@@ -15,6 +15,9 @@ import java.awt.event.ActionListener;
 public class GameController {
     final static String file = "src/main/resources/GameText.txt";
     public static FieldText mt = FieldText.getInstance();
+    public static int max=0;
+    public static String vinder;
+    public static Boolean hasWon = false;
     public static void main(String[] args) {
         Player[] players = GameFeatures.playerstoadd();
 
@@ -28,11 +31,26 @@ public class GameController {
        }
 public static void playGame (Player[] players,GUI_Parentfield[] fields,GUI gui)
 {
-    while(true) {
+    while(hasWon ==false) {
         for (int i = 0; i < players.length; i++) {
-            players[i].spil(gui,fields);
+            hasWon = players[i].spil(gui,fields);
+
         }
+
     }
+
+    for (int i = 0; i < players.length; i++)
+    {
+
+      if (players[i].getKonto().getBalance()>max)
+      {
+       vinder = players[i].getName();
+      }
+    }
+    gui.showMessage(vinder + " har vundet med flest penge");
+    gui.getUserButtonPressed(vinder + " har vundet med flest penge", "Okay");
+    System.exit(1);
+
 }
 
 public static GUI_Parentfield[] istantiererFelter()
@@ -70,33 +88,5 @@ GUI_Parentfield[] fields ={gStart,gkBurgerbaren,phPizzariaet,chanceField1,gButik
 
 return fields;
 }
-   /* public static String readTextFromFile(String file, String stringName)
-    {
-        String message;
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
 
-            String currentLine = reader.readLine();
-            //"Loop begin indtil der ikke er mere at læse"
-           // læs én linie.
-            // "Loop end
-            while (true) {
-               if (currentLine.equals( stringName))
-                {
-                    currentLine = reader.readLine();
-                    break;
-                }
-                currentLine = reader.readLine();
-            }
-            message = currentLine;
-            reader.close();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return message;
-
-
-    }*/
 }
