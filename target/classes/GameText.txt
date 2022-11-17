@@ -14,6 +14,8 @@ godteButikkenT;GodteButikken SlikButikken
 godteButikkenS;1M
 godteButikkenD;Denne grund koster 1M
 jailS;Fængsel
+jailT;Fængsel
+jailD;Fængsel man skal betale 1M for at komme ud
 museetT;Museet
 museetS;2M
 museetD;Denne grunder koster 2M

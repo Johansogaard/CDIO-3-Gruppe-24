@@ -31,13 +31,17 @@ public class GameController {
        }
 public static void playGame (Player[] players,GUI_Parentfield[] fields,GUI gui)
 {
-    while(hasWon ==false) {
-        for (int i = 0; i < players.length; i++) {
-            hasWon = players[i].spil(gui,fields);
+
+        for (int i = 0; i < players.length; i=(i+1)%players.length) {
+            if(players[i].spil(gui,fields))
+            {
+                break;
+            }
+
 
         }
 
-    }
+
 
     for (int i = 0; i < players.length; i++)
     {
@@ -51,7 +55,7 @@ public static void playGame (Player[] players,GUI_Parentfield[] fields,GUI gui)
         }
         else if (players[i].getKonto().getBalance()>max)
       {
-
+        max = players[i].getKonto().getBalance();
        vinder = players[i];
       }
 
