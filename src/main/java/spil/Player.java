@@ -5,6 +5,8 @@ import gui_fields.GUI_Player;
 import gui_main.GUI;
 import gui_Game_Fields.GUI_Parentfield;
 
+import java.awt.*;
+
 public class Player {
     public int getPos() {
         return pos;
@@ -50,6 +52,7 @@ public class Player {
         gui.addPlayer(player);
         GUI_Field field = gui.getFields()[pos];
         field.setCar(player,true);
+
         fpos = field;
         pl=player;
         this.gui = gui;
@@ -76,6 +79,10 @@ public class Player {
             }
             else if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
                 turn();
+                if (pos+t1+t2>=24)
+                {
+                    updatePlayerBalance(2);
+                }
                 pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
                 setCar(pos, gui);
