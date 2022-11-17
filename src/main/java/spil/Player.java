@@ -143,7 +143,8 @@ public class Player {
     public void buyField(int cost, String title)
     {
         gui.getUserButtonPressed(pl.getName() + " bought " + title+"", "Okay");
-        pl.setBalance(cost);
+        updatePlayerBalance(-cost);
+        konto.updateFieldValue(cost);
 
     }
     public void injail()
@@ -160,7 +161,7 @@ public class Player {
    }
    public void showchancecard(String txt){
        gui.displayChanceCard(txt);
-       gui.getUserButtonPressed(name + txt, "Okay");
+       gui.getUserButtonPressed(name +" "+ txt, "Okay");
 
     }
     public void updatePlayerBalance(int value)
@@ -171,7 +172,7 @@ public class Player {
     public int checkDoubleCost()
     {
 
-        if (gamefields[pos].getOwner() == gamefields[pos-1].getOwner() ||  gamefields[pos].getOwner() == gamefields[pos+1].getOwner())
+        if (gamefields[pos].getOwner() == gamefields[pos-1].getOwner() ||  gamefields[pos].getOwner() == gamefields[(pos+1)%24].getOwner())
         {
             return 2;
         }

@@ -16,13 +16,6 @@ public abstract class GUI_Parentfield extends GUI_Field {
     private static final int TITLEHEIGHT = 47;
     private static final int SUBTEXTHEIGHT = 14;
 
-    public Player getOwner() {
-        return owner;
-    }
-
-    public void setOwner(Player owner) {
-        this.owner = owner;
-    }
 
     private Player owner=null;
     private SwingComponentFactory factory;
@@ -45,8 +38,7 @@ public abstract class GUI_Parentfield extends GUI_Field {
         if (getOwner() ==null)
         {
             setOwner(player);
-            player.getKonto().update(-cost);
-            player.buyField(player.getKonto().getBalance(),getTitle());
+            player.buyField(cost,getTitle());
             setDescription(getDescription()+"\nOwner:"+getOwner().getName());
         }
         else if(player != getOwner())
@@ -85,4 +77,12 @@ public abstract class GUI_Parentfield extends GUI_Field {
     public String toString() {
         return "GUI_Start [bgColor=" + this.bgColor + ", fgColor=" + this.fgColor + ", title=" + this.title + ", subText=" + this.subText + ", description=" + this.description + "]";
     }
+    public Player getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Player owner) {
+        this.owner = owner;
+    }
+
 }

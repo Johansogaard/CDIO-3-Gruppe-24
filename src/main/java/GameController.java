@@ -15,8 +15,8 @@ import java.awt.event.ActionListener;
 public class GameController {
     final static String file = "src/main/resources/GameText.txt";
     public static FieldText mt = FieldText.getInstance();
-    public static int max=0;
-    public static String vinder;
+    public static int max=-100;
+    public static Player vinder;
     public static Boolean hasWon = false;
     public static void main(String[] args) {
         Player[] players = GameFeatures.playerstoadd();
@@ -42,13 +42,21 @@ public static void playGame (Player[] players,GUI_Parentfield[] fields,GUI gui)
     for (int i = 0; i < players.length; i++)
     {
 
-      if (players[i].getKonto().getBalance()>max)
+        if (players[i].getKonto().getBalance() == max)
+        {
+            if(players[i].getKonto().getFieldvalue() > vinder.getKonto().getFieldvalue())
+            {
+                vinder = players[i];
+            }
+        }
+        else if (players[i].getKonto().getBalance()>max)
       {
-       vinder = players[i].getName();
+
+       vinder = players[i];
       }
+
     }
-    gui.showMessage(vinder + " har vundet med flest penge");
-    gui.getUserButtonPressed(vinder + " har vundet med flest penge", "Okay");
+    gui.getUserButtonPressed(vinder.getName() + " har vundet med flest penge", "Okay");
     System.exit(1);
 
 }
@@ -62,6 +70,7 @@ GUI_GodteButikken gButikken = new GUI_GodteButikken();
 GUI_Iskiosken isKiosken = new GUI_Iskiosken();
 GUI_Chance chanceField1 = new GUI_Chance();
 GUI_Jail jail = new GUI_Jail();
+
 jail.setSubText(mt.mp.get("jailS"));
 GUI_Museet museet = new GUI_Museet();
 GUI_Biblioteket biblioteket = new GUI_Biblioteket();

@@ -25,7 +25,7 @@ public class GUI_Jail extends GUI_Parentfield {
     private static int picCounter = 0;
 
     public GUI_Jail() {
-        this(PICTURE, TITLE, SUBTEXT, DESCRIPTION, new Color(125, 125, 125), Color.BLACK);
+        super(Color.gray,Color.black,mt.mp.get("jailT"),mt.mp.get("jailS"),mt.mp.get("jailD"));
     }
 
     public GUI_Jail(String picture, String title, String subText, String description, Color bgColor, Color fgColor) {

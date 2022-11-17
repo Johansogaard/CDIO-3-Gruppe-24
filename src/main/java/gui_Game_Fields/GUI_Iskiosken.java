@@ -5,7 +5,7 @@ import java.awt.*;
 public class GUI_Iskiosken extends GUI_Parentfield{
 
     public GUI_Iskiosken() {
-        super(Color.blue, Color.black,mt.mp.get("iskioskenT"), mt.mp.get("iskioskenS"), mt.mp.get("iskioskenD"));
+        super(Color.MAGENTA, Color.black,mt.mp.get("iskioskenT"), mt.mp.get("iskioskenS"), mt.mp.get("iskioskenD"));
     }
 
     @Override
