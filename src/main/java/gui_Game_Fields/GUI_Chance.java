@@ -15,15 +15,17 @@ import spil.GameFeatures;
 import spil.Player;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class GUI_Chance extends GUI_Parentfield {
     private static final int TITLEHEIGHT = 47;
     private static final int SUBTEXTHEIGHT = 14;
+    private static int card=0;
     private SwingComponentFactory factory;
 
     public GUI_Chance() {
-        this("<html><b><font size=\"7\">" + Attrs.getString("GUI_Field.Label.Chance.Format", new Object[0]), Attrs.getString("GUI_Field.Label.Chance.Subtext", new Object[0]), DESCRIPTION, new Color(204, 204, 204), FG_COLOR);
+                this("<html><b><font size=\"7\">" + Attrs.getString("GUI_Field.Label.Chance.Format", new Object[0]), Attrs.getString("GUI_Field.Label.Chance.Subtext", new Object[0]), DESCRIPTION, new Color(204, 204, 204), FG_COLOR);
     }
 
     public GUI_Chance(String title, String subText, String description, Color bgColor, Color fgColor) {
@@ -64,8 +66,13 @@ public class GUI_Chance extends GUI_Parentfield {
     public void hit(Player player)
     {
 
-       Parent_Card[] cards = GameFeatures.cards();
-       cards[0].hit(player);
+       ArrayList<Parent_Card> cards = GameFeatures.cards();
+       cards.get(card).hit(player);
+       card++;
+       if (cards.size()<=card)
+       {
+           card=0;
+       }
     }
 
     public String toString() {

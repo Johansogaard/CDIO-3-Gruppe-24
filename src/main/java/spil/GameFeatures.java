@@ -1,11 +1,14 @@
 package spil;
 
 import card.Parent_Card;
-import card.RyktilstartCard;
+import card.RykFelterFrem_Card;
+import card.RykTilStart_Card;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GameFeatures {
    private static Integer players=-1;
@@ -15,12 +18,31 @@ public class GameFeatures {
     {
 
     }
-    public static Parent_Card[] cards()
+    public static ArrayList<Parent_Card> cards()
     {
-        Parent_Card rykTilStart = new RyktilstartCard();
 
-      Parent_Card cardArray[]= {rykTilStart};
-      return cardArray;
+        ArrayList<Parent_Card> cardArray = new ArrayList<Parent_Card>();
+        ArrayList<Parent_Card> randomCardArray = new ArrayList<Parent_Card>();
+        cardArray.add(new RykTilStart_Card());
+        cardArray.add(new RykFelterFrem_Card());
+        Random rand = new Random();
+        while (true) {
+            int random;
+            if (cardArray.size()==1)
+            {
+                random =1;
+            }
+            else {
+                random = rand.nextInt(1, cardArray.size());
+            }
+           randomCardArray.add(cardArray.get(random-1));
+           cardArray.remove(random-1);
+           if (cardArray.size()==0)
+           {
+               break;
+           }
+        }
+      return randomCardArray;
     }
 
     public static Player[] playerstoadd(){

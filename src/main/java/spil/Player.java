@@ -79,15 +79,12 @@ public class Player {
             }
             else if (gui.getUserButtonPressed(name + " Press button to roll dice", "Roll Dice") == "Roll Dice") {
                 turn();
-                if (pos+t1+t2>=24)
-                {
-                    updatePlayerBalance(2);
-                }
+                checkIfPassedStart(pos+t1+t2);
+
                 pos=(pos+t1 +t2)%24;
                 gui.setDice(t1, t2);
                 setCar(pos, gui);
-                displayCard(pos,gui);
-                fields[pos].hit(this);
+                hitField();
 
             }
 
@@ -101,6 +98,18 @@ public class Player {
 
 
 
+    }
+    public void hitField()
+    {
+        displayCard(pos,gui);
+        gamefields[pos].hit(this);
+    }
+    public void checkIfPassedStart(int sumPos)
+    {
+        if (sumPos>=24)
+        {
+            updatePlayerBalance(2);
+        }
     }
 
     public void turn()

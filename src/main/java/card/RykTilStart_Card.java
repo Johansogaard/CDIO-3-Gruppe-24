@@ -2,7 +2,7 @@ package card;
 
 import spil.Player;
 
-public class RyktilstartCard extends Parent_Card{
+public class RykTilStart_Card extends Parent_Card{
     @Override
     public void hit(Player player) {
         player.showchancecard("Ryk til start og modtag 2 M");
