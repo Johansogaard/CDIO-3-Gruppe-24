@@ -61,10 +61,10 @@ public class GameFeatures {
                 return plA3;
             } else {
                 Player[] plA4 = new Player[4];
-                plA4[0] = new Player("Spiller1", 18, 0);
-                plA4[1] = new Player("Spiller2", 18, 0);
-                plA4[2] = new Player("Spiller3", 18, 0);
-                plA4[3] = new Player("Spiller4", 18, 0);
+                plA4[0] = new Player("Spiller1", 16, 0);
+                plA4[1] = new Player("Spiller2", 16, 0);
+                plA4[2] = new Player("Spiller3", 16, 0);
+                plA4[3] = new Player("Spiller4", 16, 0);
                 return plA4;
             }
     }
