@@ -1,3 +1,4 @@
+package spil;
 
 import com.sun.source.tree.CatchTree;
 import game_Txt.FieldText;
